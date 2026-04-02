@@ -3,43 +3,73 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>THE LOFT SUITE | THE STAY</title>
+    <title>Unit Detail | THE STAY</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
         body { background: #fff; }
-        .container { display: flex; height: 100vh; }
-        .image-side { flex: 1.2; height: 100vh; overflow-y: auto; scroll-snap-type: y mandatory; }
-        .image-side img { width: 100%; display: block; scroll-snap-align: start; }
-        .content-side { flex: 0.8; padding: 60px 5%; overflow-y: auto; }
-        .booking-card { background: #000; color: #fff; padding: 30px; margin-top: 40px; }
-        input[type="date"] { width: 100%; padding: 15px; margin-bottom: 20px; background: #222; color: #fff; border: none; }
-        .btn-book { display: block; width: 100%; background: #fff; color: #000; text-align: center; padding: 18px; text-decoration: none; font-weight: 800; }
-        @media (max-width: 850px) { .container { flex-direction: column; } .image-side { height: 50vh; } .content-side { padding: 40px 8%; } }
+        header { display: flex; justify-content: space-between; align-items: center; padding: 15px 5%; border-bottom: 1px solid #eee; }
+        .container { display: flex; height: calc(100vh - 70px); }
+        .image-side { flex: 1.2; height: 100%; overflow-y: auto; scroll-snap-type: y mandatory; background: #fafafa; }
+        .image-side img { width: 100%; display: block; scroll-snap-align: start; margin-bottom: 5px; }
+        .content-side { flex: 0.8; padding: 40px 5%; overflow-y: auto; }
+        
+        /* Style Spesifikasi */
+        .specs-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin: 30px 0; border-top: 1px solid #eee; padding-top: 20px; }
+        .spec-item { font-size: 13px; color: #555; display: flex; align-items: center; gap: 10px; }
+        .spec-item i { color: #000; width: 15px; }
+
+        .booking-card { background: #000; color: #fff; padding: 25px; margin-top: 30px; }
+        input[type="date"] { width: 100%; padding: 15px; margin-bottom: 15px; background: #222; color: #fff; border: none; font-size: 16px; }
+        .btn-book { display: block; width: 100%; background: #fff; color: #000; text-align: center; padding: 15px; text-decoration: none; font-weight: 800; }
+        
+        @media (max-width: 850px) { .container { flex-direction: column; height: auto; } .image-side { height: 45vh; } .content-side { padding: 30px 8%; } }
     </style>
 </head>
 <body>
+    <header>
+        <a href="index.html" style="font-weight:800; text-decoration:none; color:black; letter-spacing:2px;">THE STAY</a>
+        <div style="display:flex; gap:15px;">
+            <a href="https://www.instagram.com/zeeeq._" style="color:black;"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.tiktok.com/@._ipan9" style="color:black;"><i class="fab fa-tiktok"></i></a>
+        </div>
+    </header>
+
     <div class="container">
         <div class="image-side">
             <img src="https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?w=1000">
             <img src="https://images.unsplash.com/photo-1560448204-603b3fc33ddc?w=1000">
             <img src="https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=1000">
         </div>
+
         <div class="content-side">
-            <a href="order.html" style="text-decoration:none; color:black; font-weight:700;">← BACK</a>
-            <h1 style="font-size: 40px; font-weight:800; margin-top:20px;">THE LOFT SUITE</h1>
-            <p style="font-size:24px; margin:20px 0;">RM 250 / night</p>
+            <a href="order.html" style="text-decoration:none; color:#888; font-size:12px; font-weight:700;">← BACK TO EXPLORE</a>
+            <h1 style="font-size: 32px; font-weight:800; margin-top:15px; text-transform:uppercase;">THE LOFT SUITE</h1>
+            <p style="font-size:20px; color:#555;">RM 250 / night</p>
+
+            <div class="specs-grid">
+                <div class="spec-item"><i class="fas fa-expand"></i> 1,200 sqft</div>
+                <div class="spec-item"><i class="fas fa-bed"></i> 2 Bedrooms (King)</div>
+                <div class="spec-item"><i class="fas fa-bath"></i> 2 Bathrooms</div>
+                <div class="spec-item"><i class="fas fa-swimming-pool"></i> Public Pool</div>
+                <div class="spec-item"><i class="fas fa-couch"></i> Balcony View</div>
+                <div class="spec-item"><i class="fas fa-tshirt"></i> Washing Machine</div>
+            </div>
+
             <div class="booking-card">
-                <label style="font-size:10px; display:block; margin-bottom:10px;">PILIH TARIKH</label>
-                <input type="date" id="date1">
-                <a href="#" onclick="book(1)" class="btn-book">BOOK VIA WHATSAPP</a>
+                <label style="font-size:10px; font-weight:800; display:block; margin-bottom:10px; color:#aaa;">PILIH TARIKH</label>
+                <input type="date" id="bookDate">
+                <a href="#" onclick="confirmBooking()" class="btn-book">WHATSAPP TO BOOK</a>
             </div>
         </div>
     </div>
+
     <script>
-        function book(n){
-            const d = document.getElementById('date'+n).value;
-            if(!d) return alert('Pilih tarikh bos!');
-            window.open(`https://wa.me/60136841826?text=Booking%20Loft%20Suite%20tarikh%20${d}`);
+        function confirmBooking() {
+            const date = document.getElementById('bookDate').value;
+            if(!date) { alert('Sila pilih tarikh bos!'); return; }
+            window.open(`https://wa.me/60136841826?text=Salam%20THE%20STAY,%20saya%20nak%20booking%20unit%20ini%20untuk%20tarikh%20${date}.`, '_blank');
         }
     </script>
 </body>
