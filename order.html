@@ -4,26 +4,42 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>THE STAY | Order</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
-        header { padding: 20px 5%; border-bottom: 1px solid #eee; }
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; padding: 40px 5%; }
+        header { display: flex; justify-content: space-between; align-items: center; padding: 20px 5%; background: white; border-bottom: 1px solid #eee; position: sticky; top: 0; z-index: 100; }
+        .logo { font-weight: 800; font-size: 18px; letter-spacing: 3px; text-transform: uppercase; border: 2px solid black; padding: 5px 12px; text-decoration: none; color: black; }
+        .nav-right { display: flex; align-items: center; gap: 20px; }
+        .nav-right a { text-decoration: none; color: black; font-weight: 700; font-size: 13px; text-transform: uppercase; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; padding: 40px 5%; min-height: 60vh; }
         .item-card { text-decoration: none; color: black; border: 1px solid #eee; transition: 0.3s; }
         .item-card img { width: 100%; height: 250px; object-fit: cover; }
         .info { padding: 20px; }
         .name { font-weight: 800; font-size: 18px; text-transform: uppercase; }
         .price { color: #888; margin-top: 5px; }
+        footer { background: black; color: white; padding: 60px 5%; }
+        .footer-grid { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 20px; }
+        .social-icons a { color: white; margin-left: 15px; font-size: 18px; }
     </style>
 </head>
 <body>
-    <header><a href="index.html" style="font-weight:800; text-decoration:none; color:black;">THE STAY</a></header>
+    <header>
+        <a href="index.html" class="logo">THE STAY</a>
+        <div class="nav-right">
+            <a href="order.html">ORDER</a>
+            <a href="https://www.instagram.com/zeeeq._" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.tiktok.com/@._ipan9" target="_blank"><i class="fab fa-tiktok"></i></a>
+        </div>
+    </header>
+
     <div class="grid">
         <a href="detail-room1.html" class="item-card">
             <img src="https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?w=800">
             <div class="info"><p class="name">THE LOFT SUITE</p><p class="price">RM 250 / night</p></div>
         </a>
         <a href="detail-room2.html" class="item-card">
-            <img src="https://images.unsplash.com/photo-1556911223-e45243376f67?w=800">
+            <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=800">
             <div class="info"><p class="name">GARDEN VILLA</p><p class="price">RM 400 / night</p></div>
         </a>
         <a href="detail-room3.html" class="item-card">
@@ -31,5 +47,19 @@
             <div class="info"><p class="name">STUDIO APARTMENT</p><p class="price">RM 180 / night</p></div>
         </a>
     </div>
+
+    <footer>
+        <div class="footer-grid">
+            <div><h2>THE STAY</h2><p>"Ketenangan alam dalam keselesaan moden."</p></div>
+            <div style="text-align:right">
+                <p>CONTACT US: +60 13-684 1826</p>
+                <div class="social-icons" style="margin-top:10px;">
+                    <a href="https://www.tiktok.com/@._ipan9"><i class="fab fa-tiktok"></i></a>
+                    <a href="https://www.instagram.com/zeeeq._"><i class="fab fa-instagram"></i></a>
+                    <a href="https://wa.me/60136841826"><i class="fab fa-whatsapp"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
 </body>
 </html>
