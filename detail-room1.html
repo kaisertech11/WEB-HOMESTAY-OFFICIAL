@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>THE LOFT SUITE | THE STAY</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
+        body { background: #fff; }
+        .container { display: flex; height: 100vh; }
+        .image-side { flex: 1.2; height: 100vh; overflow-y: auto; scroll-snap-type: y mandatory; }
+        .image-side img { width: 100%; display: block; scroll-snap-align: start; }
+        .content-side { flex: 0.8; padding: 60px 5%; overflow-y: auto; }
+        .booking-card { background: #000; color: #fff; padding: 30px; margin-top: 40px; }
+        input[type="date"] { width: 100%; padding: 15px; margin-bottom: 20px; background: #222; color: #fff; border: none; }
+        .btn-book { display: block; width: 100%; background: #fff; color: #000; text-align: center; padding: 18px; text-decoration: none; font-weight: 800; }
+        @media (max-width: 850px) { .container { flex-direction: column; } .image-side { height: 50vh; } .content-side { padding: 40px 8%; } }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="image-side">
+            <img src="https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?w=1000">
+            <img src="https://images.unsplash.com/photo-1560448204-603b3fc33ddc?w=1000">
+            <img src="https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=1000">
+        </div>
+        <div class="content-side">
+            <a href="order.html" style="text-decoration:none; color:black; font-weight:700;">← BACK</a>
+            <h1 style="font-size: 40px; font-weight:800; margin-top:20px;">THE LOFT SUITE</h1>
+            <p style="font-size:24px; margin:20px 0;">RM 250 / night</p>
+            <div class="booking-card">
+                <label style="font-size:10px; display:block; margin-bottom:10px;">PILIH TARIKH</label>
+                <input type="date" id="date1">
+                <a href="#" onclick="book(1)" class="btn-book">BOOK VIA WHATSAPP</a>
+            </div>
+        </div>
+    </div>
+    <script>
+        function book(n){
+            const d = document.getElementById('date'+n).value;
+            if(!d) return alert('Pilih tarikh bos!');
+            window.open(`https://wa.me/60136841826?text=Booking%20Loft%20Suite%20tarikh%20${d}`);
+        }
+    </script>
+</body>
+</html>
